@@ -10,7 +10,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.util.Date;
 
 //DB TABLE
-@Table(name="tbl_customer")
+@Table(name="tbl_customers")
 @Entity
 @Setter
 @Getter
@@ -24,53 +24,27 @@ public class Customer {
     @Column(name = "id", nullable = false)
 
     //
-
-
     private Long id;
-
+    //
+    @Column(name = "name")
     private String name;
-
+    //
+    @Column(name = "age")
     private Long age;
-
-    private String location;
+    //
+    @Column(name = "email")
+    private String email;
+    //
+    @Column(name = "password")
+    private String password;
 
     //Auto Timestamp
     @CreationTimestamp
-    @Column(name="created_at")
+    @Column(name = "created_at")
     private Date createdAt;
 
     //UpdateTimestamp
     @UpdateTimestamp
-    @Column(name="updated_at")
+    @Column(name = "updated_at")
     private Date updatedAt;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 }
