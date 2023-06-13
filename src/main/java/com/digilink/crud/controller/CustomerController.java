@@ -6,16 +6,36 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
+
+
+/**
+ *This class represents a REST controller for managing users.
+ */
 @RestController
 @RequestMapping("users")
+
+
 public class CustomerController {
     // Service Class Declaration
-    private final Service service;
+
+
+    private final Service service;// Service Class Declaration
+
+    /**
+     * Constructor for the CustomerController class.
+     * @param service The service used to perform user-related operations.
+     */
     // Service Constructor
     public CustomerController(Service service) {
         this.service = service;
     }
 
+    /**
+     * Endpoint for creating a new customer.
+     * @param customer The customer object to be created.
+     * @return The created customer object.
+     */
     @PostMapping("/customers")
     public Customer createCustomer(@RequestBody Customer customer) {
         // Try Post Save (Create new Customer)
@@ -30,7 +50,10 @@ public class CustomerController {
         }
     }
 
-    //URI localhost:8080/customers
+    /**
+     * Endpoint for retrieving all customers.
+     * @return A list of all customers.
+     */
 
     @GetMapping("/customers")
     public List<Customer> getAllUsers() {
@@ -44,6 +67,11 @@ public class CustomerController {
         }
     }
 
+    /**
+     * Endpoint for retrieving a customer by their ID.
+     * @param id The ID of the customer to retrieve.
+     * @return The customer with the specified ID.
+     */
     @GetMapping("/customers/{id}")
     public Customer getUserById(@PathVariable("id") Long id)  {
         try{
@@ -56,6 +84,15 @@ public class CustomerController {
             return null;
         }
     }
+
+
+    /**
+     * Endpoint for updating a customer.
+     * @param id The ID of the customer to update.
+     * @param customer The updated customer object.
+     * @return The updated customer object.
+     */
+
     @PutMapping("/customers/update/{id}")
     public Customer updateUser(@PathVariable("id") Long id, @RequestBody Customer customer) {
         customer.setId(id);
@@ -67,6 +104,11 @@ public class CustomerController {
             return null;
         }
     }
+
+    /**
+     *Endpoint for deleting a customer.
+     *@param id The ID of the customer to delete.
+     */
     @DeleteMapping("/employees/delete/{id}")
     public void deleteUser(@PathVariable("id") Long id) {
         service.deleteUser(id);
@@ -75,3 +117,5 @@ public class CustomerController {
     }
 
 }
+
+//END OF FILE
