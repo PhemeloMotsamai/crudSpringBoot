@@ -106,8 +106,8 @@ public class CustomerController {
     }
 
     /**
-     *Endpoint for deleting a customer.
-     *@param id The ID of the customer to delete.
+     * Endpoint for deleting a customer.
+     * @param id The ID of the customer to delete.
      */
     @DeleteMapping("/employees/delete/{id}")
     public void deleteUser(@PathVariable("id") Long id) {
