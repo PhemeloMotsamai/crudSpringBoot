@@ -8,7 +8,9 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
-
+/**
+ *This class represents the Customer entity in the database.
+ */
 //DB TABLE
 @Table(name="tbl_customers")
 @Entity
